@@ -1,0 +1,78 @@
+
+<!-- ----------- Employee Details---------------------- -->
+
+<h4>Employee Details( {{empDetail.length}})</h4> 
+<hr>
+<!-- ------------------------------------------------------------ -->
+<div>  
+  <!-- -----------------Department dropdown---------------------------   -->
+  <div class="btn-group btn-pstn">     
+   <div class="form-field">     
+      <select class="form-control" (change)="changeDepartment($event.target.value)">
+        <option >Department</option>
+        <option>Computer</option>
+        <option>Physics</option>
+        <option>Chemistry</option>      
+      </select>
+    </div>
+<!-- ---------------------------------------------------------------------------- -->
+
+<!-- ---------------------------------------Search input--------------------------------- -->
+    <div class="form-field">
+      <input type="text" class="form-control" placeholder="Name/Email" [(ngModel)]="searchinput">
+    </div>
+  <!-- --------------------------------------------------------------------------------------- -->
+
+  <!-- ---------------------------------------Search Button------------------------------- -->
+    <div class="form-field">
+      <button class="btn btn-primary" (click)="Serach()" >Serach</button>
+    </div>
+<!-- ----------------------------------------------------------------------------------------------- -->
+
+<!-- ---------------------------------------Reset and Reload Button------------------------------ -->
+    <div class="form-field">
+      <button class="btn btn-primary" (click)="reset()">Reset and Reload Data</button>
+    </div>
+<!-- ----------------------------------------------------------------------------------------------- -->
+
+
+<!-- ----------------------------------------Sort BY--------------------------------------------------- -->
+    <div class="form-field">
+     
+      <select class="form-control" (change)="sortBy($event.target.value)">
+        <option >SortBy</option>
+        <option>A-Z</option>
+        <option>Z-A</option>            
+      </select>
+    </div>
+    
+  </div>
+<!-- ---------------------------------------------------------------------------------------- -->
+
+
+<!-- ----------------------------------Table Section------------------------------------------ -->
+  <div class="table-section">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>EmpName</th>
+          <th>Age</th>
+          <th>Email Address</th>
+          <th>Department</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of empDetail | filter :filterInput; let i=index" >
+          <td>{{x.name}}</td>
+          <td>{{x.age}}</td>
+          <td>{{x.email}}</td>
+          <td><span *ngFor="let y of x.departments">{{y}}</span> </td>
+        </tr>      
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+  
+<!-- ================================================================================== -->
+

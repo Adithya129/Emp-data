@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    /* border-top-right-radius: 0; */
+    /* border-bottom-right-radius: 0; */
+    color: black;
+    background: white;
+    border-block-color: black;
+}
+.btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: black;
+    background-color: white;
+    border-block-color: black;
+}
